@@ -5,11 +5,13 @@ import { useBuilder } from "@/stores/surveyBuilder";
 import { useAuth } from "@/stores/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Eye, Save, Send } from "lucide-react";
+import { Eye, Save, Send, Sparkles } from "lucide-react";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "@/lib/firebase/client";
 import { toast } from "sonner";
 import Link from "next/link";
+import { AIGeneratorDialog } from "./AIGeneratorDialog";
+import { SaveTemplateDialog } from "./SaveTemplateDialog";
 
 export function BuilderHeader({ onPreview }: { onPreview: () => void }) {
   const router = useRouter();
@@ -18,6 +20,8 @@ export function BuilderHeader({ onPreview }: { onPreview: () => void }) {
   const setMeta = useBuilder((s) => s.setMeta);
   const reset = useBuilder((s) => s.reset);
   const [publishing, setPublishing] = useState(false);
+  const [aiOpen, setAiOpen] = useState(false);
+  const [saveOpen, setSaveOpen] = useState(false);
 
   const handlePublish = async () => {
     if (!user) {
@@ -66,18 +70,26 @@ export function BuilderHeader({ onPreview }: { onPreview: () => void }) {
         placeholder="설문 제목"
       />
       <div className="flex-1" />
+      {survey.targetType === "teacher" && (
+        <Button variant="outline" onClick={() => setAiOpen(true)}>
+          <Sparkles className="h-4 w-4" />
+          AI 생성
+        </Button>
+      )}
+      <Button variant="outline" onClick={() => setSaveOpen(true)}>
+        <Save className="h-4 w-4" />
+        내 템플릿 저장
+      </Button>
       <Button variant="outline" onClick={onPreview}>
         <Eye className="h-4 w-4" />
         미리보기
-      </Button>
-      <Button variant="outline" disabled>
-        <Save className="h-4 w-4" />
-        초안 저장
       </Button>
       <Button onClick={handlePublish} disabled={publishing}>
         <Send className="h-4 w-4" />
         {publishing ? "게시 중..." : "게시하기"}
       </Button>
+      <AIGeneratorDialog open={aiOpen} onOpenChange={setAiOpen} />
+      <SaveTemplateDialog open={saveOpen} onOpenChange={setSaveOpen} />
     </header>
   );
 }

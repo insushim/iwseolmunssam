@@ -10,13 +10,6 @@
       ]
     },
     {
-      "collectionGroup": "responses",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "submittedAt", "order": "DESCENDING" }
-      ]
-    },
-    {
       "collectionGroup": "templates",
       "queryScope": "COLLECTION",
       "fields": [
