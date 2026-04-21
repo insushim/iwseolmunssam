@@ -1,0 +1,52 @@
+{
+  "app": {
+    "name": "SurveySaem",
+    "tagline": "校园问卷调查，合法合规更安心",
+    "description": "为老师打造的最安全问卷工具"
+  },
+  "nav": {
+    "dashboard": "工作台",
+    "surveys": "我的问卷",
+    "templates": "模板",
+    "settings": "设置",
+    "logout": "退出登录",
+    "login": "登录"
+  },
+  "builder": {
+    "untitled": "未命名问卷",
+    "title_placeholder": "请输入问卷标题",
+    "description_placeholder": "请简要说明本次问卷的目的",
+    "add_question": "添加题目",
+    "preview": "预览",
+    "publish": "发布",
+    "save_draft": "保存草稿",
+    "ai_generate": "AI 生成",
+    "duplicate": "复制",
+    "delete": "删除",
+    "required": "必填",
+    "settings": "设置",
+    "consent": "同意书",
+    "translate": "翻译",
+    "share": "分享"
+  },
+  "respondent": {
+    "next": "下一题",
+    "prev": "上一题",
+    "submit": "提交",
+    "required": "此项为必填",
+    "thank_you": "感谢您的填写",
+    "duplicate": "您已提交过本问卷",
+    "expired": "本问卷已结束",
+    "consent_title": "个人信息收集与使用同意书",
+    "consent_agree": "同意并开始",
+    "consent_disagree": "不同意"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "confirm": "确定",
+    "loading": "加载中...",
+    "error": "出现错误",
+    "success": "已完成"
+  }
+}

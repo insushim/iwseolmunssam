@@ -1,0 +1,52 @@
+{
+  "app": {
+    "name": "SurveySaem",
+    "tagline": "学校アンケートを、法的に安全に",
+    "description": "先生のための、もっとも安全なアンケートツールです"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "surveys": "マイアンケート",
+    "templates": "テンプレート",
+    "settings": "設定",
+    "logout": "ログアウト",
+    "login": "ログイン"
+  },
+  "builder": {
+    "untitled": "無題のアンケート",
+    "title_placeholder": "アンケートのタイトルを入力してください",
+    "description_placeholder": "アンケートの簡単な説明を入力してください",
+    "add_question": "質問を追加",
+    "preview": "プレビュー",
+    "publish": "公開する",
+    "save_draft": "下書き保存",
+    "ai_generate": "AIで作成",
+    "duplicate": "複製",
+    "delete": "削除",
+    "required": "必須",
+    "settings": "設定",
+    "consent": "同意書",
+    "translate": "翻訳",
+    "share": "共有"
+  },
+  "respondent": {
+    "next": "次へ",
+    "prev": "戻る",
+    "submit": "送信する",
+    "required": "この項目は必須です",
+    "thank_you": "ご回答ありがとうございました",
+    "duplicate": "すでにご回答いただいています",
+    "expired": "このアンケートは終了しました",
+    "consent_title": "個人情報の収集・利用に関する同意",
+    "consent_agree": "同意して始める",
+    "consent_disagree": "同意しない"
+  },
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "confirm": "OK",
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "success": "完了しました"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "app": {
+    "name": "SurveySaem",
+    "tagline": "Khảo sát học đường, an toàn về mặt pháp lý",
+    "description": "Công cụ khảo sát an toàn nhất dành cho giáo viên"
+  },
+  "nav": {
+    "dashboard": "Trang chính",
+    "surveys": "Khảo sát của tôi",
+    "templates": "Mẫu có sẵn",
+    "settings": "Cài đặt",
+    "logout": "Đăng xuất",
+    "login": "Đăng nhập"
+  },
+  "builder": {
+    "untitled": "Khảo sát chưa đặt tên",
+    "title_placeholder": "Nhập tiêu đề khảo sát",
+    "description_placeholder": "Viết mô tả ngắn về khảo sát này",
+    "add_question": "Thêm câu hỏi",
+    "preview": "Xem trước",
+    "publish": "Đăng khảo sát",
+    "save_draft": "Lưu bản nháp",
+    "ai_generate": "Tạo bằng AI",
+    "duplicate": "Nhân bản",
+    "delete": "Xóa",
+    "required": "Bắt buộc",
+    "settings": "Cài đặt",
+    "consent": "Phiếu đồng ý",
+    "translate": "Dịch",
+    "share": "Chia sẻ"
+  },
+  "respondent": {
+    "next": "Tiếp theo",
+    "prev": "Quay lại",
+    "submit": "Gửi",
+    "required": "Mục này bắt buộc phải trả lời",
+    "thank_you": "Cảm ơn quý vị đã trả lời",
+    "duplicate": "Quý vị đã gửi khảo sát này rồi",
+    "expired": "Khảo sát đã kết thúc",
+    "consent_title": "Đồng ý thu thập và sử dụng thông tin cá nhân",
+    "consent_agree": "Tôi đồng ý và bắt đầu",
+    "consent_disagree": "Tôi không đồng ý"
+  },
+  "common": {
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "confirm": "Đồng ý",
+    "loading": "Đang tải...",
+    "error": "Đã xảy ra lỗi",
+    "success": "Hoàn tất"
+  }
+}

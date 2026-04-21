@@ -1,0 +1,52 @@
+{
+  "app": {
+    "name": "SurveySaem",
+    "tagline": "School surveys, legally safe by default",
+    "description": "The safest survey tool built for teachers"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "surveys": "My Surveys",
+    "templates": "Templates",
+    "settings": "Settings",
+    "logout": "Log out",
+    "login": "Log in"
+  },
+  "builder": {
+    "untitled": "Untitled survey",
+    "title_placeholder": "Enter your survey title",
+    "description_placeholder": "Add a short description of this survey",
+    "add_question": "Add question",
+    "preview": "Preview",
+    "publish": "Publish",
+    "save_draft": "Save draft",
+    "ai_generate": "Generate with AI",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "required": "Required",
+    "settings": "Settings",
+    "consent": "Consent form",
+    "translate": "Translate",
+    "share": "Share"
+  },
+  "respondent": {
+    "next": "Next",
+    "prev": "Back",
+    "submit": "Submit",
+    "required": "This field is required",
+    "thank_you": "Thank you for your response",
+    "duplicate": "You have already submitted this survey",
+    "expired": "This survey has closed",
+    "consent_title": "Consent to collect and use personal data",
+    "consent_agree": "I agree and continue",
+    "consent_disagree": "I do not agree"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "OK",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "success": "Done"
+  }
+}

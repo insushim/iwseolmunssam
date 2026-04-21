@@ -1,0 +1,43 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /teachers/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    match /surveys/{surveyId} {
+      allow read: if resource.data.status == 'open'
+                  || (request.auth != null && request.auth.uid == resource.data.teacherId);
+      allow create: if request.auth != null
+                    && request.resource.data.teacherId == request.auth.uid;
+      allow update, delete: if request.auth != null
+                            && resource.data.teacherId == request.auth.uid;
+
+      match /responses/{responseId} {
+        allow read: if request.auth != null
+                    && get(/databases/$(database)/documents/surveys/$(surveyId)).data.teacherId
+                       == request.auth.uid;
+        allow create: if get(/databases/$(database)/documents/surveys/$(surveyId)).data.status == 'open'
+                      && !('ip' in request.resource.data.clientMeta)
+                      && request.resource.data.submittedAt == request.time;
+        allow update, delete: if false;
+      }
+
+      match /tokens/{tokenId} {
+        allow read: if true;
+        allow create, delete: if request.auth != null
+                              && get(/databases/$(database)/documents/surveys/$(surveyId)).data.teacherId
+                                 == request.auth.uid;
+        allow update: if request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['used', 'usedAt']);
+      }
+    }
+
+    match /templates/{templateId} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && (resource == null || resource.data.source == 'user');
+    }
+  }
+}
