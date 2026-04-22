@@ -34,22 +34,21 @@ export function BuilderHeader({ onPreview }: { onPreview: () => void }) {
     }
     setPublishing(true);
     try {
-      const create = httpsCallable<unknown, { id: string; code: string }>(functions, "createSurvey");
+      const create = httpsCallable<unknown, { surveyId: string; shortCode: string; autoDeleteAt: number }>(functions, "createSurvey");
       const res = await create({
         title: survey.title,
         description: survey.description,
-        targetType: survey.targetType,
-        isAnonymous: survey.isAnonymous,
-        duplicatePrevention: survey.duplicatePrevention,
         questions: survey.questions,
-        consent: survey.consent,
-        branding: survey.branding,
-        retention: { serverDays: survey.retention.serverDays },
-        locale: survey.locale,
+        anonymous: survey.isAnonymous,
+        duplicateMode: survey.duplicatePrevention,
+        retentionDays: survey.retention.serverDays,
       });
+      if (!res.data?.surveyId) {
+        throw new Error("게시 응답이 올바르지 않습니다.");
+      }
       toast.success("설문이 게시되었어요!");
       reset();
-      router.push(`/surveys/${res.data.id}/share`);
+      router.push(`/surveys/${res.data.surveyId}/share`);
     } catch (e) {
       const msg = e instanceof Error ? e.message : "게시 실패";
       toast.error(msg);
