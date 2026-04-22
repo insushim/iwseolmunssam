@@ -24,6 +24,18 @@ interface SurveyQuestion {
   required?: boolean;
 }
 
+interface ConsentPayload {
+  required: boolean;
+  items: string[];
+  retention: number;
+  customText?: string;
+}
+
+interface BrandingPayload {
+  color: string;
+  logo?: string;
+}
+
 interface CreateSurveyData {
   title: string;
   description?: string;
@@ -31,6 +43,10 @@ interface CreateSurveyData {
   retentionDays?: number;
   duplicateMode?: 'none' | 'fingerprint' | 'hash' | 'token';
   anonymous?: boolean;
+  targetType?: 'student' | 'parent' | 'teacher';
+  consent?: ConsentPayload;
+  branding?: BrandingPayload;
+  locale?: string[];
 }
 
 interface SubmitResponseData {
@@ -88,6 +104,15 @@ export const createSurvey = onCall(
       now.toMillis() + retentionDays * 24 * 60 * 60 * 1000,
     );
 
+    const targetType: 'student' | 'parent' | 'teacher' =
+      data.targetType === 'parent' || data.targetType === 'teacher' ? data.targetType : 'student';
+    const consent: ConsentPayload = data.consent ?? { required: false, items: [], retention: 7 };
+    const branding: BrandingPayload = {
+      color: data.branding?.color ?? '#6366f1',
+      ...(data.branding?.logo ? { logo: data.branding.logo } : {}),
+    };
+    const locale: string[] = Array.isArray(data.locale) && data.locale.length > 0 ? data.locale : ['ko'];
+
     const surveyRef = db.collection('surveys').doc();
     await surveyRef.set({
       id: surveyRef.id,
@@ -104,6 +129,10 @@ export const createSurvey = onCall(
       createdAt: now,
       updatedAt: now,
       autoDeleteAt,
+      targetType,
+      consent,
+      branding,
+      locale,
     });
 
     return { surveyId: surveyRef.id, shortCode, autoDeleteAt: autoDeleteAt.toMillis() };

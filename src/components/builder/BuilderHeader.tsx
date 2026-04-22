@@ -42,6 +42,10 @@ export function BuilderHeader({ onPreview }: { onPreview: () => void }) {
         anonymous: survey.isAnonymous,
         duplicateMode: survey.duplicatePrevention,
         retentionDays: survey.retention.serverDays,
+        targetType: survey.targetType,
+        consent: survey.consent,
+        branding: survey.branding,
+        locale: survey.locale,
       });
       if (!res.data?.surveyId) {
         throw new Error("게시 응답이 올바르지 않습니다.");
